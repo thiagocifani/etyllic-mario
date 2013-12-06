@@ -1,5 +1,7 @@
 package mario.stages;
 
+import sound.model.Music;
+import sound.model.Sound;
 import mario.item.fruit.RedFruit;
 import br.com.etyllica.animation.scripts.FrameAnimation;
 import br.com.etyllica.core.application.Application;
@@ -10,8 +12,6 @@ import br.com.etyllica.core.video.Graphic;
 import br.com.etyllica.layer.AnimatedLayer;
 import br.com.etyllica.layer.ImageLayer;
 import br.com.etyllica.layer.StaticLayer;
-import br.com.etyllica.multimedia.Music;
-import br.com.etyllica.multimedia.Sound;
 
 public class YoshiHouse extends Application{
 
@@ -152,16 +152,16 @@ public class YoshiHouse extends Application{
 		if(!walking){
 
 			//UP Arrow
-			if(event.onKeyDown(KeyEvent.TSK_UP_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_UP)){
+			if(event.isKeyDown(KeyEvent.TSK_UP_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_UP)){
 				lookUp();				
-			}else if(event.onKeyUp(KeyEvent.TSK_UP_ARROW)||event.onKeyUp(KeyEvent.TSK_JOYSTICK_CENTER_Y)){
+			}else if(event.isKeyUp(KeyEvent.TSK_UP_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_CENTER_Y)){
 				stand();
 			}
 
 			//DOWN Arrow
-			if(event.onKeyDown(KeyEvent.TSK_DOWN_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_DOWN)){
+			if(event.isKeyDown(KeyEvent.TSK_DOWN_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_DOWN)){
 				standDown();
-			}else if(event.onKeyUp(KeyEvent.TSK_DOWN_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_CENTER_Y)){
+			}else if(event.isKeyUp(KeyEvent.TSK_DOWN_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_CENTER_Y)){
 				stand();
 			}
 		}
@@ -169,20 +169,20 @@ public class YoshiHouse extends Application{
 		if(!looking){
 
 			//RIGHT Arrow
-			if(event.onKeyDown(KeyEvent.TSK_RIGHT_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_RIGHT)){
+			if(event.isKeyDown(KeyEvent.TSK_RIGHT_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_RIGHT)){
 				turnRight();
 				startWalking();
 
-			}else if(event.onKeyUp(KeyEvent.TSK_RIGHT_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_CENTER_X)){
+			}else if(event.isKeyUp(KeyEvent.TSK_RIGHT_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_CENTER_X)){
 				stopWalk();
 			}
 
 			//LEFT Arrow
-			if(event.onKeyDown(KeyEvent.TSK_LEFT_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_LEFT)){
+			if(event.isKeyDown(KeyEvent.TSK_LEFT_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_LEFT)){
 				turnLeft();
 				startWalking();
 
-			}else if(event.onKeyUp(KeyEvent.TSK_LEFT_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_CENTER_X)){
+			}else if(event.isKeyUp(KeyEvent.TSK_LEFT_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_CENTER_X)){
 				stopWalk();
 			}
 
@@ -190,23 +190,23 @@ public class YoshiHouse extends Application{
 		}else{
 			
 			//RIGHT ARROW
-			if(event.onKeyDown(KeyEvent.TSK_RIGHT_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_RIGHT)){
+			if(event.isKeyDown(KeyEvent.TSK_RIGHT_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_RIGHT)){
 				turnRight();
 			}
 			
 			//LEFT ARROW
-			else if(event.onKeyDown(KeyEvent.TSK_LEFT_ARROW)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_LEFT)){
+			else if(event.isKeyDown(KeyEvent.TSK_LEFT_ARROW)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_LEFT)){
 				turnLeft();
 			}
 		}
 
-		if(event.onKeyDown(KeyEvent.TSK_ESPACO)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_BUTTON_1)){
+		if(event.isKeyDown(KeyEvent.TSK_ESPACO)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_BUTTON_1)){
 			startJump();
 		}
 		
-		if(event.onKeyDown(KeyEvent.TSK_SHIFT_LEFT)||event.onKeyDown(KeyEvent.TSK_JOYSTICK_BUTTON_3)){
+		if(event.isKeyDown(KeyEvent.TSK_SHIFT_LEFT)||event.isKeyDown(KeyEvent.TSK_JOYSTICK_BUTTON_3)){
 			walkSpeed = 5;
-		}else if(event.onKeyUp(KeyEvent.TSK_SHIFT_LEFT)||event.onKeyUp(KeyEvent.TSK_JOYSTICK_BUTTON_3)){
+		}else if(event.isKeyUp(KeyEvent.TSK_SHIFT_LEFT)||event.isKeyUp(KeyEvent.TSK_JOYSTICK_BUTTON_3)){
 			walkSpeed = 3;
 		}
 
