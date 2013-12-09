@@ -4,3 +4,4 @@
 *.applet
 *.war
 *.ear
+.DS_Store
